@@ -216,11 +216,13 @@ class Shader:
 				code = code.replace('iChannel' + str(channel), 'sTD2DInputs[' + str(channel) + ']')
 				code = code.replace('iChannelResolution[' + str(channel) + ']', 'vec2(uTD2DInfos[' + str(channel) + '].res.zw)')
 
-		# # sub all iChannel with sTD2DInputs
-		# conv_code = re.sub(r'iChannel(\d)', r'sTD2DInputs[\1]', raw_code)
 
-		# # sub all iChannelResolution with TDTexInfo
-		# conv_code = re.sub(r'iChannelResolution\[(\d)\]', r'vec2(uTD2DInfos[\1].res.zw)', conv_code)
+
+		# sub all iChannel with sTD2DInputs
+		code = re.sub(r'iChannel(\d)', r'sTD2DInputs[\1]', code)
+
+		# sub all iChannelResolution with TDTexInfo
+		code = re.sub(r'iChannelResolution\[(\d)\]', r'vec2(uTD2DInfos[\1].res.zw)', code)
 
 		return code	
 
