@@ -123,7 +123,9 @@ class Shader:
 		self.loadBuffers()
 		self.loadImage()
 
-		self.ownerComp.op('speed1').par.resetpulse.pulse()
+		self.ownerComp.op('speed1').par.reset = True
+
+		self.ownerComp.op('resetTime').run(delayFrames=1)
 
 	def loadCommon(self):
 		common = self.stored['Common']
