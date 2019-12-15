@@ -2,11 +2,11 @@
 
 The .toe scene in this repo contains a collection of components that can be used to load Shadertoy shaders into TouchDesigner. This is made possible through the use of the Shadertoy API which allows users to search for shaders as well as download json dictionary of the requested shader's code and sampler data.
 
-Not all shaders are available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it.
+Not all shaders are available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Most of the shaders available in the API will load in without any issues with the exceptino of a few shaders that rely on specific sampler wrap and filter conditions that TouchDesigner does not account for. In Shadertoy, users are allowed to set these settings individually for each shader input channel but the glsl TOP in TouchDesigner only lets the user set this globally. Generally this isn't an issue but occasionally you'll see a shader fail to display correctly.
 
-There are a few main difference in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component modifies the code for each shaders respective image and buffer shaders. As well, samplers for each shader are created and routed to their corresponding shader inputs.
+There are a few differences in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component modifies the code for each shader's respective image and buffer shaders. Among other things, samplers for each shader are created and routed to their corresponding shader inputs.
 
-There are several conversion issues that the shadertoyConverter component address:
+There are several conversion issues that the shadertoyConverter component addresses:
 
 - ShaderToy provides a default set of useful uniforms. These can simply be prepended to each shader's code and added in the uniform pages of the glsl TOP. 
 
@@ -48,7 +48,7 @@ There are several conversion issues that the shadertoyConverter component addres
 	code = re.sub(r'iChannelResolution\[(\d)\]', r'vec2(uTD2DInfos[\1].res.zw)', code)
 	```
 
-- If an additional common file is used it must be added to the shader code.
+- If an additional common file is used, a reference must be included.
 
 	```
 	code += textwrap.dedent('''
@@ -56,10 +56,9 @@ There are several conversion issues that the shadertoyConverter component addres
 	''')
 	```
 
-- Sampler objects must be generated and routed. This is done using a pre-made sampler component that can easily be set to load the desired source
+- Sampler objects must be generated and routed. This is done using a pre-made sampler component that can easily be set to load the desired source.
 	```
 	for i in range(len(samplers)):
-		#pprint(renderpass)
 		s = samplers[i]
 
 		sComp = comp.op('sampler' + str(i))
@@ -100,3 +99,5 @@ There are several conversion issues that the shadertoyConverter component addres
 		else:
 			comp.op('select' + str(channel)).par.top = sComp.name + '/out1'
 	```
+
+This method works for almost all shaders except that which need individual input sampler wrap and filter modes.  
