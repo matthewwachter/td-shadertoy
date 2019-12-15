@@ -43,9 +43,6 @@ class Shader:
 			'Buffer D': self.buffDComp,
 		}
 
-		for b in self.bufferComps:
-			self.bufferComps[b].allowCooking = False
-
 		storedItems = [
 			{'name': 'Shader', 'default': {}, 'dependable': True},
 			{'name': 'Image', 'default': {}, 'dependable': True},
@@ -66,6 +63,9 @@ class Shader:
 		site_id = self.stored['Info']['id']
 
 		ui.viewFile('https://www.shadertoy.com/view/' + str(site_id))
+
+	def pulse_Resettime(self):
+		self.ownerComp.op('speed1').par.resetpulse.pulse()
 
 	def getShader(self):
 		shader_id = self.ownerComp.par.Id.eval()
