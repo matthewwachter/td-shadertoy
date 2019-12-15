@@ -2,6 +2,8 @@
 
 The .toe scene in this repo contains a collection of components that can be used to load Shadertoy shaders into TouchDesigner. This is made possible through the use of the Shadertoy API which allows users to search for shaders as well as download json dictionary of the requested shader's code and sampler data.
 
+![Screenshot1](/images/screenshot1.jpg)
+
 Not all shaders are available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Most of the shaders available in the API will load in without any issues with the exceptino of a few shaders that rely on specific sampler wrap and filter conditions that TouchDesigner does not account for. In Shadertoy, users are allowed to set these settings individually for each shader input channel but the glsl TOP in TouchDesigner only lets the user set this globally. Generally this isn't an issue but occasionally you'll see a shader fail to display correctly.
 
 There are a few differences in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component modifies the code for each shader's respective image and buffer shaders. Among other things, samplers for each shader are created and routed to their corresponding shader inputs.
@@ -99,5 +101,3 @@ There are several conversion issues that the shadertoyConverter component addres
 		else:
 			comp.op('select' + str(channel)).par.top = sComp.name + '/out1'
 	```
-
-This method works for almost all shaders except that which need individual input sampler wrap and filter modes.  
