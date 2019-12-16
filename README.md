@@ -1,6 +1,5 @@
 # td-shadertoy
 
-## Introduction
 
 **td-shadertoy.toe** contains a collection of components that can be used to load Shadertoy shaders into TouchDesigner. This is made possible through the use of the Shadertoy API which allows users to search for shaders and download a json dictionary of the shader's code and sampler data.
 
@@ -11,13 +10,10 @@
 There are a few differences in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component requests the json object from the API, modifies the shader's code, generates the samplers, and routes them to their respective destinations.
 
 ## shadertoyConverter
-This component can be used to load a shader by inputting a shader ID into the **Shader ID** parameter and clicking the **Load** pulse.
-
-### Parameters
 ![Screenshot3](images/screenshot3.JPG)
 
 - **API Key**
-	- Can be created at ![shadertoy.com/myapps](https://www.shadertoy.com/myapps)
+	- Can be created at [shadertoy.com/myapps](https://www.shadertoy.com/myapps)
 - **Shader ID**
 	- The ID of the shader to download e.g. shadertoy.com/view/**3ld3Dn**
 - **Load**
@@ -27,14 +23,13 @@ This component can be used to load a shader by inputting a shader ID into the **
 - **Reset Time**
 	- Reset the internal clock to 0
 
-## shadertoyBrowser
-This component can be used to request and load shaders given a specific search term. Leaving the search term blank will search all. 
 
-### Parameters
+
+## shadertoyBrowser
 ![Screenshot2](images/screenshot2.JPG)
 
 - **API Key**
-	- Can be created at ![shadertoy.com/myapps](https://www.shadertoy.com/myapps)
+	- Can be created at [shadertoy.com/myapps](https://www.shadertoy.com/myapps)
 - **Render Size**
 	- Set the resolution of each shader
 - **Start**
@@ -43,8 +38,11 @@ This component can be used to request and load shaders given a specific search t
 	- The max number of results to return
 - **Search Term**
 	- The search query
+	- Leaving this blank will search all
 - **Sort**
 	- The method to sort the search results
+
+
 
 ## Shader Code Conversion
 
