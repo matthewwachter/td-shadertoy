@@ -15,7 +15,7 @@
 
 - Requests the json object from the API
 - Modifies the shader code
-- Generates and routes the samplers
+- Generates and routes samplers
 
 ![Screenshot3](images/screenshot3.JPG)
 
@@ -61,7 +61,7 @@
 
 Below you will find exmples of several differences between the way shaders are written in Shadertoy and TouchDesigner. These differences need to be addressed in order to compile the shader code in TouchDesigner. This is done automatically when the **shadertoyConverter** component loads a shader.
 
-- ShaderToy provides a default set of useful uniforms. These can simply be prepended to each shader's code and added in the uniform parameters of the glsl TOP. 
+- Shadertoy provides a default set of useful uniforms. These can simply be prepended to each shader's code and added in the uniform parameters of the glsl TOP. 
 
 ```
 uniform vec3      iResolution;           // viewport resolution (in pixels)
