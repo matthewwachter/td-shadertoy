@@ -5,11 +5,14 @@
 
 [Shadertoy API Documentation](https://www.shadertoy.com/howto)
 
-![Screenshot1](images/screenshot1.JPG)
+
 
 
 
 ## shadertoyConverter
+
+![Screenshot1](images/screenshot1.JPG)
+
 - Requests the json object from the API
 - Modifies the shader code
 - Generates and routes the samplers
@@ -30,6 +33,9 @@
 
 
 ## shadertoyBrowser
+
+![Screenshot4](images/screenshot4.JPG)
+
 - Uses the API to return a list of shader IDs
 - Uses a replicator to copy the shadertoyConverter for each returned ID
 
