@@ -6,8 +6,6 @@
 
 ![Screenshot1](images/screenshot1.JPG)
 
-Not all shaders are made available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Most of the available shaders will load in without any issues with the exception of those that rely on specific sampler wrap and filter conditions. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally. Generally this isn't an issue but some shaders fail to display correctly because of this.
-
 There are a few differences in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component requests the json object from the API, modifies the shader's code, generates the samplers, and routes them to their respective destinations. 
 
 There are several conversion issues in the shader's code that the shadertoyConverter component addresses:
@@ -59,3 +57,9 @@ code += textwrap.dedent('''
 #include <../common>
 ''')
 ```
+
+### Known Issues
+
+Not all shaders are made available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Some publicly published shaders will not load because this option was not selected.
+
+Shaders that rely on specific sampler wrap and filter conditions may have issues displaying correctly. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally.
