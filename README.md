@@ -2,6 +2,8 @@
 
 **td-shadertoy.toe** contains a collection of components that can be used to load Shadertoy shaders into TouchDesigner. This is made possible through the use of the Shadertoy API which allows users to search for shaders and download a json dictionary of the shader's code and sampler data.
 
+[Shadertoy API Documentation](https://www.shadertoy.com/howto)
+
 ![Screenshot1](images/screenshot1.JPG)
 
 Not all shaders are made available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Most of the available shaders will load in without any issues with the exception of those that rely on specific sampler wrap and filter conditions. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally. Generally this isn't an issue but some shaders fail to display correctly because of this.
