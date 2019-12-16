@@ -7,9 +7,13 @@
 
 ![Screenshot1](images/screenshot1.JPG)
 
-There are a few differences in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component requests the json object from the API, modifies the shader's code, generates the samplers, and routes them to their respective destinations.
+
 
 ## shadertoyConverter
+- Requests the json object from the API
+- Modifies the shader code
+- Generates and routes the samplers
+
 ![Screenshot3](images/screenshot3.JPG)
 
 - **API Key**
@@ -26,6 +30,9 @@ There are a few differences in the way a glsl shader is written in Shadertoy vs 
 
 
 ## shadertoyBrowser
+- Uses the API to return a list of shader IDs
+- Uses a replicator to copy the shadertoyConverter for each returned ID
+
 ![Screenshot2](images/screenshot2.JPG)
 
 - **API Key**
