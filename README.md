@@ -44,11 +44,11 @@ There are a few differences in the way a glsl shader is written in Shadertoy vs 
 
 
 
-## Shader Code Conversion
+## Converting Shadertoy to TouchDesigner
 
 There are several differences listed below that need to be addressed in the shader code. This is done automatically when the **shadertoyConverter** component loads a shader.
 
-- ShaderToy provides a default set of useful uniforms. These can simply be prepended to each shader's code and added in the uniform pages of the glsl TOP. 
+- ShaderToy provides a default set of useful uniforms. These can simply be prepended to each shader's code and added in the uniform parameters of the glsl TOP. 
 
 ```
 uniform vec3      iResolution;           // viewport resolution (in pixels)
