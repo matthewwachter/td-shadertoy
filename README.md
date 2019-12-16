@@ -1,5 +1,7 @@
 # td-shadertoy
 
+## Introduction
+
 **td-shadertoy.toe** contains a collection of components that can be used to load Shadertoy shaders into TouchDesigner. This is made possible through the use of the Shadertoy API which allows users to search for shaders and download a json dictionary of the shader's code and sampler data.
 
 [Shadertoy API Documentation](https://www.shadertoy.com/howto)
@@ -8,7 +10,9 @@
 
 There are a few differences in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component requests the json object from the API, modifies the shader's code, generates the samplers, and routes them to their respective destinations. 
 
-There are several conversion issues in the shader's code that the shadertoyConverter component addresses:
+## Conversion
+
+There are several differences listed below that need to be addressed in the shader code. This is done automatically when the **shadertoyConverter** component loads a shader.
 
 - ShaderToy provides a default set of useful uniforms. These can simply be prepended to each shader's code and added in the uniform pages of the glsl TOP. 
 
@@ -58,8 +62,8 @@ code += textwrap.dedent('''
 ''')
 ```
 
-### Known Issues
+## Known Issues
 
--Not all shaders are made available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Some publicly published shaders will not load because this option was not selected.
+- Not all shaders are made available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Some publicly published shaders will not load because this option was not selected.
 
--Shaders that rely on specific sampler wrap and filter conditions may have issues displaying correctly. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally.
+- Shaders that rely on specific sampler wrap and filter conditions may have issues displaying correctly. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally.
