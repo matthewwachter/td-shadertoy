@@ -1,7 +1,7 @@
 # td-shadertoy
 
 
-**td-shadertoy.toe** contains a collection of components that can be used to load Shadertoy shaders into TouchDesigner via the Shadertoy API.
+**td-shadertoy.toe** contains a collection of components that can be used to load shaders from Shadertoy into TouchDesigner via the Shadertoy API.
 
 [Shadertoy API Documentation](https://www.shadertoy.com/howto)
 
