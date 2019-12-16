@@ -23,7 +23,7 @@ uniform vec4      iDate;                 // (year, month, day, time in seconds)
 uniform float     iSampleRate;           // sound sample rate (i.e., 44100)
 ```
 
-- The Main loop is called mainImage(). This can be addressed by appending the following code which calls the mainImage() function and passes it the color buffer as well as the expected pixel coordinates. 
+- The Shadertoy main loop is called **mainImage()** rather than **main()** and expects texture coordinates in pixel space. This can be addressed by appending the following **main()** function code which calls **mainImage()** and passes in the color buffer as well as the expected pixel coordinates. 
 
 ```
 layout (location = 0) out vec4 TDColor;
@@ -33,7 +33,7 @@ void main()
 }
 ```
 
-- In TouchDesigner, samplers are provided as array objects called sTD2DInputs and sTDCubeInputs for cubemaps. Shadertoy refers to all types of samplers as iChannel so the names must be substituted according to the sampler type. 
+- In TouchDesigner, samplers are provided as array objects named **sTD2DInputs** and **sTDCubeInputs** for cubemaps. Shadertoy refers to all types of samplers as iChannel therefore the sampler names must be substituted according to the sampler type. 
 
 ```
 if ctype == 'cubemap':
@@ -44,7 +44,7 @@ else:
 	code = code.replace('iChannelResolution[' + str(channel) + ']', 'vec2(uTD2DInfos[' + str(channel) + '].res.zw)')
 ```
 
-- iChannelResolution must also be modified to use the TouchDesigner provided texture info array object.
+- iChannelResolution must also be modified to use the TouchDesigner provided texture info array **uTD2DInfos**.
 
 ```
 code = re.sub(r'iChannelResolution\[(\d)\]', r'vec2(uTD2DInfos[\1].res.zw)', code)
@@ -60,6 +60,6 @@ code += textwrap.dedent('''
 
 ### Known Issues
 
-Not all shaders are made available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Some publicly published shaders will not load because this option was not selected.
+-Not all shaders are made available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Some publicly published shaders will not load because this option was not selected.
 
-Shaders that rely on specific sampler wrap and filter conditions may have issues displaying correctly. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally.
+-Shaders that rely on specific sampler wrap and filter conditions may have issues displaying correctly. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally.
