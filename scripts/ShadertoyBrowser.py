@@ -31,8 +31,8 @@ class ShadertoyBrowser:
 		query_url = "https://www.shadertoy.com/api/v1/shaders/query/" + query + "?sort=" + sort + "&from=" + str(start_page) + "&num=" + str(query_num) + "&key=" + apikey
 		all_url = "https://www.shadertoy.com/api/v1/shaders/query/?sort=" + sort + "&from=" + str(start_page) + "&num=" + str(query_num) + "&key=" + apikey
 
-		search = self.ownerComp.par.Search
-		if(search):
+		
+		if(query != ''):
 			my_url = query_url
 		else:
 			my_url = all_url 
