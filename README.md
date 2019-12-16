@@ -14,6 +14,7 @@ There are a few differences in the way a glsl shader is written in Shadertoy vs 
 This component can be used to load a shader by inputting a shader ID into the **Shader ID** parameter and clicking the **Load** pulse.
 
 ### Parameters
+![Screenshot3](images/screenshot3.JPG)
 
 - **API Key**
 	- Can be created at ![shadertoy.com/myapps](https://www.shadertoy.com/myapps)
@@ -30,6 +31,7 @@ This component can be used to load a shader by inputting a shader ID into the **
 This component can be used to request and load shaders given a specific search term. Leaving the search term blank will search all. 
 
 ### Parameters
+![Screenshot2](images/screenshot2.JPG)
 
 - **API Key**
 	- Can be created at ![shadertoy.com/myapps](https://www.shadertoy.com/myapps)
