@@ -8,9 +8,43 @@
 
 ![Screenshot1](images/screenshot1.JPG)
 
-There are a few differences in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component requests the json object from the API, modifies the shader's code, generates the samplers, and routes them to their respective destinations. 
+There are a few differences in the way a glsl shader is written in Shadertoy vs TouchDesigner. The shadertoyConverter component requests the json object from the API, modifies the shader's code, generates the samplers, and routes them to their respective destinations.
 
-## Conversion
+## shadertoyConverter
+This component can be used to load a shader by inputting a shader ID into the **Shader ID** parameter and clicking the **Load** pulse.
+
+### Parameters
+
+- **API Key**
+	- Can be created at ![shadertoy.com/myapps](https://www.shadertoy.com/myapps)
+- **Shader ID**
+	- The ID of the shader to download e.g. shadertoy.com/view/**3ld3Dn**
+- **Load**
+	- Load the shader
+- **Open Site**
+	- Open up the shader in a web browser
+- **Reset Time**
+	- Reset the internal clock to 0
+
+## shadertoyBrowser
+This component can be used to request and load shaders given a specific search term. Leaving the search term blank will search all. 
+
+### Parameters
+
+- **API Key**
+	- Can be created at ![shadertoy.com/myapps](https://www.shadertoy.com/myapps)
+- **Render Size**
+	- Set the resolution of each shader
+- **Start**
+	- Set the start index of the search
+- **Results**
+	- The max number of results to return
+- **Search Term**
+	- The search query
+- **Sort**
+	- The method to sort the search results
+
+## Shader Code Conversion
 
 There are several differences listed below that need to be addressed in the shader code. This is done automatically when the **shadertoyConverter** component loads a shader.
 
