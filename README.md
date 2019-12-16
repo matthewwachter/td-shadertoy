@@ -57,9 +57,9 @@
 
 
 
-## Converting Shadertoy to TouchDesigner
+## Converting from Shadertoy to TouchDesigner
 
-There are several differences listed below that need to be addressed in the shader code. This is done automatically when the **shadertoyConverter** component loads a shader.
+Below you will find exmples of several differences between the way shaders are written in Shadertoy and TouchDesigner. These differences need to be addressed in order to compile the shader code in TouchDesigner. This is done automatically when the **shadertoyConverter** component loads a shader.
 
 - ShaderToy provides a default set of useful uniforms. These can simply be prepended to each shader's code and added in the uniform parameters of the glsl TOP. 
 
@@ -84,7 +84,7 @@ void main()
 }
 ```
 
-- In TouchDesigner, samplers are provided as array objects named **sTD2DInputs** and **sTDCubeInputs** for cubemaps. Shadertoy refers to all types of samplers as iChannel therefore the sampler names must be substituted according to the sampler type. 
+- TouchDesigner provides input samplers as array objects named **sTD2DInputs** and **sTDCubeInputs** (cubemaps). Shadertoy refers to all types of samplers as **iChannel** so the sampler names must be substituted according to the sampler type. 
 
 ```
 if ctype == 'cubemap':
