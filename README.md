@@ -84,7 +84,7 @@ void main()
 }
 ```
 
-- TouchDesigner provides input samplers as array objects named **sTD2DInputs** and **sTDCubeInputs** (cubemaps). Shadertoy refers to all types of samplers as **iChannel** so the sampler names must be substituted according to the sampler type. 
+- TouchDesigner provides input samplers as array objects named **sTD2DInputs** and **sTDCubeInputs** (cubemaps). Shadertoy refers to all types of samplers as **iChannel** so the sampler names must be substituted according to the sampler type. **iChannelResolution** must also be modified to use the TouchDesigner provided texture info array **uTD2DInfos**
 
 ```
 if ctype == 'cubemap':
@@ -92,13 +92,6 @@ if ctype == 'cubemap':
 	code = code.replace('iChannelResolution[' + str(channel) + ']', 'vec2(uTDCubeInfos[' + str(channel) + '].res.zw)')
 else:
 	code = code.replace('iChannel' + str(channel), 'sTD2DInputs[' + str(channel) + ']')
-	code = code.replace('iChannelResolution[' + str(channel) + ']', 'vec2(uTD2DInfos[' + str(channel) + '].res.zw)')
-```
-
-- iChannelResolution must also be modified to use the TouchDesigner provided texture info array **uTD2DInfos**.
-
-```
-code = re.sub(r'iChannelResolution\[(\d)\]', r'vec2(uTD2DInfos[\1].res.zw)', code)
 ```
 
 - If an additional **common** file is used, a reference must be included.
