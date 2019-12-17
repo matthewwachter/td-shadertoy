@@ -107,3 +107,7 @@ code += textwrap.dedent('''
 - Not all shaders are made available in the API as the shader's creator must choose to allow the shader to be available in the API when they publish it. Some publicly published shaders will not load because this option was not selected.
 
 - Shaders that rely on specific sampler wrap and filter conditions may have issues displaying correctly. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally.
+
+
+
+[matthewwachter.com](https://www.matthewwachter.com)
