@@ -10,7 +10,8 @@ Built in TouchDesigner version - **2019.20140**
 
 
 **WARNING: YOU CANNOT USE THESE SHADERS FOR COMMERCIAL PURPOSES WITHOUT PERMISSION**
-If you wish to do so, you must contact the original author of the shader and obtain permission. The shadertoyConverter component has a button to **Open Site** which will open the shader on the Shadertoy website where you will find the author's contact information. Usually the author will include license information as a comment in the shader's code.
+
+If you wish to use a Shadertoy shader in a commercial environment, you must contact the original author of the shader and obtain permission. The shadertoyConverter component has a button to **Open Site** which will open the shader on the Shadertoy website where you will find the author's contact information. Usually the author will include license information as a comment in the shader's code.
 
 
 
