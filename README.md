@@ -2,11 +2,11 @@
 
 Built in TouchDesigner version - **2019.20140**
 
-**td-shadertoy.toe** is a collection of TouchDesigner components that can be used to convert and browse Shadertoy shaders via the Shadertoy API.
+**td-shadertoy.toe** is a collection of TouchDesigner components that can be used to convert and browse Shadertoy shaders via the [Shadertoy API](https://www.shadertoy.com/howto).
 
 
 
-[Shadertoy API Documentation](https://www.shadertoy.com/howto)
+
 
 ### WARNING
 **YOU CANNOT USE THESE SHADERS FOR COMMERCIAL PURPOSES WITHOUT PERMISSION**
