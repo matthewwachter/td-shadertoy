@@ -114,6 +114,8 @@ code += textwrap.dedent('''
 
 - Shaders that rely on specific sampler wrap and filter conditions may have issues displaying correctly. In Shadertoy, users are allowed to set these settings individually for each shader's input channel but the glsl TOP in TouchDesigner only allows the user set this globally.
 
+- Cubemap shaders are not currently supported.
+
 
 ## Links
 
