@@ -8,7 +8,7 @@ can be accessed externally, e.g. op('yourComp').PromotedFunction().
 
 Help: search "Extensions" in wiki
 """
-import urllib.request
+import requests
 from json import loads
 import textwrap
 
@@ -73,7 +73,10 @@ class Shader:
 
 		try:
 			shader_url = 'https://www.shadertoy.com/api/v1/shaders/' + shader_id + '?key=' + apikey
-			myrequest = urllib.request.urlopen(shader_url).read().decode("utf-8")
+			headers = {
+				'User-Agent': 'My User Agent 1.0',
+			}			
+			myrequest = requests.get(shader_url, headers=headers).content.decode("utf-8")
 			myjson = loads(myrequest)
 			self.stored['Shader'] = myjson['Shader']
 

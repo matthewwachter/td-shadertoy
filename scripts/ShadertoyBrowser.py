@@ -1,4 +1,4 @@
-import urllib.request
+import requests
 import json
 
 from TDStoreTools import StorageManager
@@ -40,7 +40,10 @@ class ShadertoyBrowser:
 		num_shaders = 0
 
 		try:
-			myrequest = urllib.request.urlopen(my_url).read().decode("utf-8")
+			headers = {
+				'User-Agent': 'My User Agent 1.0',
+			}
+			myrequest = requests.get(my_url, headers=headers).content.decode("utf-8")
 			shadertoy = json.loads(myrequest)
 			num_shaders = shadertoy['Shaders']
 			shader_ids = shadertoy['Results']
