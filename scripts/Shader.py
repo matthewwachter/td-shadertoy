@@ -202,6 +202,18 @@ class Shader:
 
 		''')
 		return uniforms
+	
+	def generateDefines(self):
+		""" Generate #defines for shadertoy shader
+		"""
+		
+		defines = textwrap.dedent('''
+		#define TD_SHADERTOY
+		#define TOUCHDESIGNER
+
+		''')
+		return defines
+
 
 	def convertChannelInfo(self, raw_code, samplers):
 
@@ -235,6 +247,7 @@ class Shader:
 
 
 		code = self.generateUniforms()
+		code += self.generateDefines()
 		
 		if len(self.stored['Common']) > 0:
 			code += textwrap.dedent('''
